@@ -1,3 +1,7 @@
+[![make.fun](https://make.fun/badge/u-riidzhsn-pump-fun-bot-sprint-make-bot-and-win-cb203fed.svg)](https://make.fun/bounty/u-riidzhsn-pump-fun-bot-sprint-make-bot-and-win-cb203fed)
+[![Rank](https://make.fun/badge/u-riidzhsn-pump-fun-bot-sprint-make-bot-and-win-cb203fed/musemosmouses/pumpfun-bot-sprint/rank.svg)](https://make.fun/bounty/u-riidzhsn-pump-fun-bot-sprint-make-bot-and-win-cb203fed)
+[![Reward](https://make.fun/badge/u-riidzhsn-pump-fun-bot-sprint-make-bot-and-win-cb203fed/musemosmouses/pumpfun-bot-sprint/reward.svg)](https://make.fun/bounty/u-riidzhsn-pump-fun-bot-sprint-make-bot-and-win-cb203fed)
+
 # pumpfun-sprint-bot
 
 A disciplined paper-trading bot for the make.fun pump.fun replay sprint
@@ -10,24 +14,23 @@ A disciplined paper-trading bot for the make.fun pump.fun replay sprint
 
 A launch sniper with a strict rug filter, tuned on the kit's frozen dev window
 (24 h of real pump.fun data, 2 Nov 2026, 128k events, 1,222 mints):
-
 - **Entry (first 3 slots after a coin's CreateEvent only):** the creator bought
-  >= 0.75 SOL of their own coin, >= 4 distinct non-creator wallets piled in
-  (and <= 10 — a launch bundled by many wallets is usually the creator's cluster
-  waiting to dump), the creator has not sold, and the curve already holds
-  >= 1 SOL of real SOL.
+>= 0.75 SOL of their own coin, >= 4 distinct non-creator wallets piled in
+(and <= 10 — a launch bundled by many wallets is usually the creator's cluster
+waiting to dump), the creator has not sold, and the curve already holds
+>= 1 SOL of real SOL.
 - **Size:** up to 0.5 SOL per coin; every order is still capped at 1% of the
-  coin's real SOL reserve. Orders are never split into pieces — each extra piece
-  costs a fixed 105k-lamport tx fee, measured at ~0.02 SOL over the dev window
-  for zero benefit.
+coin's real SOL reserve. Orders are never split into pieces — each extra piece
+costs a fixed 105k-lamport tx fee, measured at ~0.02 SOL over the dev window
+for zero benefit.
 - **Exits:** take profit +10%, stop loss -5%, max hold 5 slots, exit at once
-  when the creator sells.
+when the creator sells.
 - **Guardrail pacer:** the entry filter is deliberately strict (~35 coins per
-  24 h), but a 6 h final window would only hold ~9 of them — below the 20-coin
-  minimum bar. When the bot's traded-coin count lags a 25-coin / 6 h pace, it
-  opens tiny 0.012 SOL probe round trips on liquid curves (buy, sell as soon as
-  the buy lands) until it is back on pace. Probes are purely a guardrail pacer,
-  never a profit source.
+24 h), but a 6 h final window would only hold ~9 of them — below the 20-coin
+minimum bar. When the bot's traded-coin count lags a 25-coin / 6 h pace, it
+opens tiny 0.012 SOL probe round trips on liquid curves (buy, sell as soon as
+the buy lands) until it is back on pace. Probes are purely a guardrail pacer,
+never a profit source.
 
 Deterministic by construction: no clock, no randomness, no network, no I/O —
 the two graded executions produce byte-identical action logs.
@@ -35,7 +38,7 @@ the two graded executions produce byte-identical action logs.
 ## Verified results (dev window, OLD kit — see caveat)
 
 | | |
-|---|---|
+|---|---|---|
 | Net PnL (`grade-local --driver process`, old kit) | **+0.0872 SOL** |
 | Local sim (`tools/sim.ts`, old kit) | +0.0739 SOL |
 | Coins / round trips | 90 coins, 91 round trips >= 0.01 SOL |
